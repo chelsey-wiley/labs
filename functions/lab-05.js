@@ -1,4 +1,33 @@
-//function goes here
+var short = "joe";
+var b = short.length;
+
+
+var long = "penelope";
+var a = long.length;
+
+
+  if (b <= a){
+    console.log(short);
+}
+
+
+
+
+
+/*
+CORRECT
+
+var short = "joe";
+var b = short.length;
+
+
+var long = "penelope";
+var a = long.length;
+
+
+  if (b <= a){
+    console.log(short);
+}
 
 
 /*
