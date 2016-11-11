@@ -15,7 +15,8 @@ var a = long.length;
 
 
 /*
-CORRECT
+COMPLETED
+
 
 var short = "joe";
 var b = short.length;
