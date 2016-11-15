@@ -1,36 +1,23 @@
-var short = "joe";
-var b = short.length;
+function short(a, b){
 
+  if (a.length <= b.length){
+    return a;
+  }
 
-var long = "penelope";
-var a = long.length;
-
-
-  if (b <= a){
-    console.log(short);
+  else {
+    return b;
+  }
 }
+var result = short("joe", "penelope");
+console.log(result);
 
 
 
 
-
-/*
-COMPLETED
+/*COMPLETED
 
 
-var short = "joe";
-var b = short.length;
 
 
-var long = "penelope";
-var a = long.length;
-
-
-  if (b <= a){
-    console.log(short);
-}
-
-
-/*
 Write a function that takes two strings and returns the longest. If the two are of the same length, it can return either.
 */
