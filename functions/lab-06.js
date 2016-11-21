@@ -21,7 +21,7 @@ console.log(answer);
 
 
 
-/* function goes here
+/* COMPLETED function goes here
 var short = "dog";
 var s = short.length;
 
