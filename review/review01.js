@@ -1,6 +1,4 @@
-/*
-
-COMPLETED No. 1: write a function that takes two numbers and returns a sum
+/*COMPLETED No. 1: write a function that takes two numbers and returns a sum
 
 function sum(a, b){
   var answer = (a + b);
@@ -84,7 +82,7 @@ No. 7 write a function that takes an array and return `true` if the array contai
 */
 
 function longArr(theArr){
-  for (theArr.length > 20; {
+  for (theArr.length > 20) {
   return 'true'
   }
 }
