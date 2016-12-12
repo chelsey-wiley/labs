@@ -99,7 +99,9 @@ function kingsNamedSelecus(data){           //1
 var result = kingsNamedSelecus(apiResult);  //2
 // console.log(result); //9 see result with node
 
-//var result = rulersByName('Seleucus') -- can remove the whole function kingsNamedSelecus refactoring 
+
+//refactoring:
+// var result = rulersByName('Seleucus') -- can remove the whole function kingsNamedSelecus refactoring
 
 
 //write a function that returns all kings named "Antiochus"
@@ -120,14 +122,16 @@ function kingsNamedAntiochus(data){
 
 var result = kingsNamedAntiochus(apiResult);
 // console.log(result);
+//refactoring:
 //var result = rulersByName('Antiochus') -- can remove the whole function kingsNamedAntiochus thanks to refactoring
 
 //Once those two are complete, refactor so that they can both use the same function -- must pass in king name
+//see lined 124 and 104 for refactoring
 
 function rulersByName (data, kingName) {
   var outputRefactor = [];
   for (var i=0; i< data.rulers.length; i++){
-    var ruler =data.rulers[i];
+    var ruler = data.rulers[i];
     if (ruler.name.indexOf(kingName) != -1){
       outputRefactor.push(ruler);
     }
@@ -179,7 +183,32 @@ var result = kingsWithApama(apiResult);
 
 //Once those two are complete, refactor so that they can both use the same function
 
+  function rulersByConsort (data, consortName){
+    var outputRefactorConsort = [];
+    for (var i=0; i<data.rulers.length; i++)
+    var ruler = data.rulers[i];
+    if (ruler.consort.indexOf('consortName') != -1){
+      outputRefactorConsort.push(ruler);
+    }
+    return outputRefactorConsort;
+  }
+
+  result = rulersByConsort(apiResult,'Apama');
+  console.log(result);
 //-------------------------
+// function rulersByName (data, kingName) {
+//   var outputRefactor = [];
+//   for (var i=0; i< data.rulers.length; i++){
+//     var ruler =data.rulers[i];
+//     if (ruler.name.indexOf(kingName) != -1){
+//       outputRefactor.push(ruler);
+//     }
+//   }
+//   return outputRefactor;
+// }
+//
+// result = rulersByName(apiResult, 'Seleucus');
+// console.log(result)
 
 //write a function that returns the rulers who reigned more than five years
 
