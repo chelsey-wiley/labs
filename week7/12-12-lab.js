@@ -186,32 +186,51 @@ var result = kingsWithApama(apiResult);
   function rulersByConsort (data, consortName){
     var outputRefactorConsort = [];
     for (var i=0; i<data.rulers.length; i++)
-    var ruler = data.rulers[i];
-    if (ruler.consort.indexOf('consortName') != -1){
-      outputRefactorConsort.push(ruler);
-    }
+      var ruler = data.rulers[i];
+      if (ruler.consort.indexOf('consortName') != -1){
+        outputRefactorConsort.push(ruler);
+      }
     return outputRefactorConsort;
   }
 
   result = rulersByConsort(apiResult,'Apama');
-  console.log(result);
+  result = rulersByConsort(apiResult, 'Laodice');
+  // console.log(result);
 //-------------------------
-// function rulersByName (data, kingName) {
-//   var outputRefactor = [];
-//   for (var i=0; i< data.rulers.length; i++){
-//     var ruler =data.rulers[i];
-//     if (ruler.name.indexOf(kingName) != -1){
-//       outputRefactor.push(ruler);
-//     }
-//   }
-//   return outputRefactor;
-// }
-//
-// result = rulersByName(apiResult, 'Seleucus');
-// console.log(result)
+
 
 //write a function that returns the rulers who reigned more than five years
 
+function overFive(data) {
+  var outputOverFive =[];
+
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+
+    if (ruler.startReign - ruler.endReign >= 5 ) {
+      outputOverFive.push(ruler);
+    }
+  }
+  return outputOverFive
+}
+
+var result = overFive(apiResult);
+//console.log(result);
+
 //write a function that returns the rulers who reigned more than twenty years
 
+function overTwenty(data){
+  var outputOverTwenty = [];
+
+  for (var i = 0; i < data.rulers.length; i++){
+    var ruler = data.rulers[i];
+    if (ruler.startReign - ruler.endReign >= 20){
+      outputOverTwenty.push(ruler);
+    }
+  }
+  return outputOverTwenty
+}
+
+var result = overTwenty(apiResult);
+console.log(result)
 //Once those two are complete, refactor so that they can both use the same function
