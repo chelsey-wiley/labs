@@ -241,8 +241,8 @@ function numOfConsorts (data, number){
 return outputRefactorOne;
 }
 
-resultOfRefactorOne = numOfConsorts (apiResult, 0);
-resultOfRefactorOne = numOfConsorts (apiResult, 2);
+var resultOfRefactorOne = numOfConsorts (apiResult, 0);
+var resultOfRefactorOne = numOfConsorts (apiResult, 2);
 // console.log(resultOfRefactorOne);
 
 //Write a function that returns the king with the longest name
@@ -253,7 +253,7 @@ function longName (data){
 
     var ruler = data.rulers[i];
 
-    if (ruler.name.length > kingName.name.length){
+    if (ruler.name.length > outputLongName.name.length){
       kingName = ruler
     }
 
@@ -261,15 +261,87 @@ function longName (data){
   return outputLongName;
 }
 
-restltOfLongName = longName(apiResult);
-console.log(resultOfLongName);
+var resultOfLongName = longName(apiResult);
+
+// console.log(resultOfLongName);
 
 //Write a function that takes a consorts name and returns all the kings she was consort with
 
+function consortWithKing(data, consort) {
+  var outputForConsort = [];
+
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+
+    for (var a = 0; a < ruler.consort.length; a++) {
+      if (ruler.consort[i] === consort) {
+        outputForConsort.push(ruler);
+      }
+    }
+  }
+  return outputForConsort;
+}
+var resultOfConsortWithKing = consortWithKing(apiResult, "Apama");
+// console.log(resultOfConsortWithKing);
+
 //-------------------------
 
-//Write a function that returns all kings with a consort whose name contains "Cleopatra"
+function rulerWithConsortCleo(data) {
+  var outputOfConsortCleo = [];
+
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+
+  for (var a = 0; a < ruler.consort.length; a++) {
+    if (ruler.consort[a].indexOf('Cleopatra') != -1) {
+      outputOfConsortCleo.push(ruler);
+      }
+    }
+  }
+  return outputOfConsortCleo;
+}
+var resultofConsortCleo =rulerWithConsortCleo(apiResult);
+// console.log(resultofConsortCleo);
+
 
 //Write a function that returns all kings with a consort whose name contains "Laodice"
 
+function rulersWithConsortLao(data) {
+  var outputOfConsortLao = [];
+
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+
+    for (var a = 0; a < ruler.consort.length; a++) {
+
+      if (ruler.consort[a].indexOf('Laodice') != -1) {
+        outputOfConsortLao.push(ruler);
+    }
+  }
+}
+  return outputOfConsortLao;
+}
+var resultOfRulersWithLao =rulersWithConsortLao(apiResult);
+
+// console.log(resultOfRulersWithLao);
+
 //Once those two are complete, refactor so that they can both use the same function
+
+function consortsWithNames(data, consortName) {
+  var outputOfConsortWithNames = [];
+
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+
+    for (var a = 0; a < ruler.consort.length; a++) {
+      if (ruler.consort[a].indexOf(consortName) != -1) {
+        outputOfConsortWithNames.push(ruler);
+      }
+    }
+  }
+  return outputOfConsortWithNames;
+}
+
+// var resultConsortLao = consortsWithNames(apiResult, 'Laodice');
+// var resultConsortCleo = consortWithNames(apiResult, 'Cleopatra');
+// console.log(resultConsortLao);
