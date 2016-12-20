@@ -614,6 +614,19 @@ var dataset = [
 
 // Write a function that will take this data and return just an array of the female population numbers. Requirement: use map.
 
+function justLadies(data) {
+  var output = data.map(function(info){
+    return info.females;
+  });
+  return output;
+}
+
+var result = justLadies(dataset);
+console.log(result);
+
+
+
+
 dataset.map(function(ladies){
   //IT WORKED
   // console.log(num.females);
@@ -635,6 +648,7 @@ var newData = dataset.map(function(obj){
     males: obj.males,
     total: obj.total,
   }
+  return newObj;
   //IT WORKED
   //console.log(newObj)
 });

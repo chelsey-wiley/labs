@@ -3,7 +3,8 @@ numbers.map(function(num){
 return num * 2;
 });
 
-[10, 20, 30, 10]
+console.log(numbers);
+
 var people = [
   {firstName: 'joe',
   lastName: 'smith',
@@ -22,6 +23,28 @@ var output = people.map(function(person){
 });
 
 
-var obj = {
-  firstName
-}
+
+//REDUCE
+//reduce takes 2 parameters not just passing function
+//reduce takes a bunch of things and returns one value
+//function is the item in array, initial value (0)
+//second paramenter is the vallue in the array
+//first parameter is what you're doing
+
+var numbers = [1, 3, 5, 22, 12];
+
+var output = numbers.reduce(function (sum, valueInArray){
+  // console.log('sum', sum, 'value in array', valueInArray);
+  return sum + valueInArray
+}, 0);
+
+  // console.log ('end of output', output);
+
+var names = ['ben', 'joe', 'bob', 'paul']
+
+var output = names.reduce(function(initial, value){
+  // console.log('initial', initial);
+  return initial + ',' + value
+});
+
+// console.log('end of output', output);

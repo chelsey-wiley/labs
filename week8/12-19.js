@@ -664,26 +664,101 @@ var result = genderAgewithMost(dataset, 'males', 'females');
 
 // Create a function that computes the total number of males
 
+
 function totalDudes(data) {
-  var output = 0
-  dataset.forEach(function(malesNumber))
+  var output = 0;
+  dataset.forEach(function(malesNumber){
+    output += malesNumber.males
+  });
+  return output;
 }
 
- result = totalDudes(dataset)
+ var result = totalDudes(dataset);
+ // console.log('total dudes:', result);
 
 // Create a function that computes the total number of females
 
+function totalLadies(data){
+  var output = 0;
+  dataset.forEach(function(femalesNumber){
+  output += femalesNumber.females
+  });
+  return output;
+}
+
+var result = totalLadies (dataset);
+// console.log('total ladies:', result);
+
+
+
 // Refactor those into one function
+
+function totalPeeps (data, gender){
+  var output = 0;
+
+  data.forEach(function(person){
+    output += person[gender]
+  });
+  return output;
+}
+
+var result = totalPeeps(dataset, "females")
+// var result = totalPeeps(dataset, "males")
+// console.log(result)
 
 // ---------------------
 
 // Create a function that computes the total number of males over the age of 65
 
+function totalDudesOverSixtyFive (data){
+  var output = 0;
+
+  data.forEach(function(dudes){
+    if (dudes.age > 65){
+      output += dudes.males
+    };
+  })
+  return output
+}
+var result = totalDudesOverSixtyFive(dataset);
+// console.log(result);
+
 // Create a function that computes the total number of females over the age of 65
+
+function ladiesOverSixtyFive(data){
+  var output = 0;
+
+  data.forEach(function(ladies){
+    if (ladies.age > 65){
+      output += ladies.females
+    };
+  })
+  return output;
+}
+var result = ladiesOverSixtyFive(dataset);
+// console.log(result);
+
 
 // Refactor those into one function
 
-//create a function that are 5 or younger
+function peepsOverSixty(data, gender){
+  var output = 0;
+
+  data.forEach(function(peeps){
+    if(peeps.age > 65){
+      output += peeps[gender];
+    };
+  });
+  return output;
+}
+// var result = peepsOverSixty(dataset, "females");
+var result = peepsOverSixty(dataset, "males");
+console.log('refactored result', result)
+
+
+
+
+//PRACTICE create a function that are 5 or younger
 
 function totalPeepsFiveOrUnder(data){
   var output = 0 //total is a number not an array
@@ -697,24 +772,4 @@ function totalPeepsFiveOrUnder(data){
 }
 
 result = totalPeepsFiveOrUnder(dataset);
-
 //console.log(result);
-
-//Creating my own for each function
-Array.prototype.forEachFunction = function (func) {
-  // console.log('doing this thing');
-  for (var i =0; i < this.length; i++){
-    // console.log('iterating over i', i);
-    func(this[i]);
-  }
-
-}
-
-for (var i = 0; i <dataset.length; i++){
-  var objInDataset = dataset[i];
-  console.log('for loop', objInDataset.country);
-}
-
-dataset.forEach(function(objInDataset){
-  console.log('forEach', objInDataset.country);
-})
