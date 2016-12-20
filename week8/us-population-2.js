@@ -610,111 +610,33 @@ var dataset = [
     total: 60513 }
 ];
 
-// For all these, use the forEach iterator function
 
 
-// Create a function that finds all the ages that there are more females than males
- function alltheYearsWithLadies(data){ //2 - dataset gets passed through here
-   var output = [];
+// Write a function that will take this data and return just an array of the female population numbers. Requirement: use map.
 
-   data.forEach(function(item){ //3
-     if (item.females > item.males){
-       output.push(item.age);
-     }
-    //  console.log(item);
-   });
-   return output;
- }
-
- var result = alltheYearsWithLadies(dataset); //1 -dataset gets passed in here
- // console.log(result);
-
-
-// Create a function that finds all the ages that there are more males than females
-
-function alltheYearsWithGuys(data){
-  var output = [];
-  data.forEach(function(item){
-    if(item.females < item.males){
-      output.push(item.age);
-    }
-  });
-  return output;
-}
-
-var result = alltheYearsWithGuys(dataset);
-// console.log(result);
-
-// Refactor those into one function
-
-function genderAgewithMost (data, greater, lesser){
-  var output = [];
-  data.forEach(function(ageGroup){
-    if (ageGroup[greater] > ageGroup[lesser]){
-    output.push(ageGroup.age);
-  }
-  });
-  return output;
-}
-
-var result = genderAgewithMost(dataset, 'males', 'females');
-// console.log(result);
-
-// ---------------------
-
-// Create a function that computes the total number of males
-
-function totalDudes(data) {
-  var output = 0
-  dataset.forEach(function(malesNumber))
-}
-
- result = totalDudes(dataset)
-
-// Create a function that computes the total number of females
-
-// Refactor those into one function
-
-// ---------------------
-
-// Create a function that computes the total number of males over the age of 65
-
-// Create a function that computes the total number of females over the age of 65
-
-// Refactor those into one function
-
-//create a function that are 5 or younger
-
-function totalPeepsFiveOrUnder(data){
-  var output = 0 //total is a number not an array
-
-  data.forEach(function(ageGroup){//each thing in the data do this function. Goal is to do something. Something built into forEach will pass in an item (parameter);
-    //console.log('doing this', ageGroup.age); //agegroup is a variable same as data and dataset
-    if (ageGroup.age <=5){
-      output += ageGroup.total;
-    }
-  });
-}
-
-result = totalPeepsFiveOrUnder(dataset);
-
-//console.log(result);
-
-//Creating my own for each function
-Array.prototype.forEachFunction = function (func) {
-  // console.log('doing this thing');
-  for (var i =0; i < this.length; i++){
-    // console.log('iterating over i', i);
-    func(this[i]);
-  }
-
-}
-
-for (var i = 0; i <dataset.length; i++){
-  var objInDataset = dataset[i];
-  console.log('for loop', objInDataset.country);
-}
-
-dataset.forEach(function(objInDataset){
-  console.log('forEach', objInDataset.country);
+dataset.map(function(ladies){
+  //IT WORKED
+  // console.log(num.females);
 })
+
+// Write a function that will take this data and return just an array of the male population numbers. Requirement: use map.
+
+dataset.map(function(dudes){
+  //IT WORKED
+  //console.log(num.males);
+})
+
+// Write a function that will take this data and return a new array of objects without the country and year properties. Requirement: use map.
+
+var newData = dataset.map(function(obj){
+  var newObj = {
+    females: obj.females,
+    age: obj.age,
+    males: obj.males,
+    total: obj.total,
+  }
+  //IT WORKED
+  //console.log(newObj)
+});
+
+// Write a function that will take this data and return a new array of objects with all the same properties, also including a new property containing the difference in male and female population. To get this, subtract the female population from the male population. Requirement: use map.
