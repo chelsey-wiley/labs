@@ -610,73 +610,22 @@ var dataset = [
     total: 60513 }
 ];
 
+// Write a function that returns all years where there is a greater than 20K difference male and female population. Requirement: use filter.
 
 
-// Write a function that will take this data and return just an array of the female population numbers. Requirement: use map.
+var num = dataset.filter(function(obj){
+  console.log('females', obj.females)
+  if(obj.females - obj.males > 20000)
+  return true
+});
 
-function justLadies(data) {
-  var output = data.map(function(info){
-    return info.females;
-  });
-  return output;
-}
+console.log(num)
 
-var result = justLadies(dataset);
-// console.log(result);
-//IT WORKS
+// Write a function that returns all years where there is less than a 100K population. Requirement: use filter.
 
+//  Write a function that returns all years where there is a greater than 20K difference male and female population. Then have it take this data and return a new array of objects without the country and year properties. Requirements: use filter to accomplish the first and map to accomplish the second.
 
-// Write a function that will take this data and return just an array of the male population numbers. Requirement: use map.
+// Write a function that returns all years where there is less than a 100K population. Then have it take this data and return a new array of objects with all the same properties, also including a new property containing the difference in male and female population. To get this, subtract the female population from the male population. Requirements: use filter to accomplish the first and map to accomplish the second.
 
 
-function justDudes(data){
-  var output = dataset.map(function(dudes){
-    return dudes.males;
-    });
-    return output;
-  }
-
-var result = justDudes(dataset);
-// console.log('just Dudes', result);
-//IT WORKS
-
-// Write a function that will take this data and return a new array of objects without the country and year properties. Requirement: use map.
-
-function newData(data){
-  var output = data.map(function(obj){
-
-    return {
-      females: obj.females,
-      age: obj.age,
-      males: obj.males,
-      total: obj.total,
-  };
-  });
-  return output;
-  // console.log('output', output)
-};
-
-var result = newData(dataset);
-
-// console.log('result', result);
-//IT WORKS
-
-// Write a function that will take this data and return a new array of objects with all the same properties, also including a new property containing the difference in male and female population. To get this, subtract the female population from the male population. Requirement: use map.
-
-function newInfo (data){
-  var output = data.map(function(obj){
-
-    return{
-      females: obj.females,
-      age: obj.age,
-      males: obj.males,
-      total: obj.total,
-      totalDifference: obj.females - obj.males,
-    };
-  });
-  return output;
-  console.log('output', output)
-};
-
-var result = newInfo(dataset);
-console.log('result', result);
+// Requirement: use filter.

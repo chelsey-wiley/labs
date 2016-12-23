@@ -67,3 +67,19 @@ var output = numbers.reduce(function (sum, valueInArray){
   // console.log('sum', sum, 'value in array', valueInArray);
   return sum + valueInArray
 }, 0);
+
+
+//FITLER
+
+var stuff2 = [{name: 'mark twain', age: 64}, {name:'jane austen', age:45}];
+
+filter2 = stuff2.filter(function(obj){
+  if (obj.age< 50){
+    return true;
+  }
+  else{
+    return false;
+  }
+});
+
+console.log(filter2);

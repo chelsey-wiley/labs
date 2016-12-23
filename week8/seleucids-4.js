@@ -191,42 +191,28 @@ var dataset = {
   ]
 }
 
-//-------------------------
-// Reducing practice
-//-------------------------
 
-// Create a function that calculates the total consorts. Requirement: you must use reduce
 
-   var output = dataset.rulers.reduce(function(sum, theValue){
-     return sum + theValue
-   }, 0);
+// Write a function that returns all kings named "Seleucus". Requirement: use filter.
 
-  console.log ('end of output', output);
+function kingsNamedSeleucus(data) {
+  var output = data.rulers.filter(function(item) {
+    if (item.name.indexOf("Seleucus") != -1 ) {
+      return true;
+    }
+    else {
+      return false;
+    }
+      });
+      return output;
+}
+  var result = kingsNamedSeleucus(dataset);
+  console.log(result);
 
-// Use the function you just created to calculate the average number of consorts
+// Write a function that returns the rulers who reigned more than five years. Requirement: use filter.
 
-//-------------------------
+// Write a function that returns the rulers who reigned more than twenty years. Requirement: use filter.
 
-// Create a function that counts how many rulers are the second ruler with that name in the dynasty. Requirement: use reduce
+// Write a function that returns rulers without consorts. Requirement: use filter.
 
-// Create a function that counts how many rulers are the third ruler with that name in the dynasty. Requirement: use reduce
-
-//-------------------------
-
-// Create a function that calculates the total years that all the rulers ruled. Requirement: you must use reduce.
-
-// Use the function you just created to calculate the average length of the all the rulers' reign
-
-//-------------------------
-// Mapping practice
-//-------------------------
-
-// Write a function that will take this data and return just an array of the ruler's names. Requirement: use map.
-
-// Write a function that will take this data and return just an array of the lengths of each ruler's rule. Requirement: use map.
-
-// Write a function that will take this data and return a new array of objects that has all the same data, plus each object needs to have a new property called "lengthOfReign" which should have the length of the ruler's reign in years. Requirement: use map.
-
-// Write a function that will take this data and return a new array of objects that has the name of the ruler and a property called "numberOfConsorts", which should have the total number of consorts that the ruler had. Requirement: use map.
-
-// Write a function that will take this data and return an array of strings in this format: "{name} ({startReign}-{endReign} BCE)" (e.g. "Seleucus I Nicator (305-281 BCE)"). Requirement: use map.
+// Write a function that returns the rulers who reigned more than five years. Then have it return a new array containing objects with all the same properties, including a new property called "lengthOfReign". Requirement: use filter for the first task and map for the second.
