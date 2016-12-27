@@ -707,6 +707,3 @@ function lessThanHunderedK(data){
 
 var result = lessThanHunderedK(dataset);
 console.log ('it works', result);
-
-
-// Requirement: use filter.
