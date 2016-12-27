@@ -196,12 +196,14 @@ var dataset = {
 //-------------------------
 
 // Create a function that calculates the total consorts. Requirement: you must use reduce
-
-   var output = dataset.rulers.reduce(function(sum, theValue){
-     return sum + theValue
+  function totalConsorts(data){
+   var output = data.rulers.reduce(function(start, theValue){
+     return start + item.consor.length;
    }, 0);
-
-  console.log ('end of output', output);
+   return output;
+ }
+ var end = totalConsorts(dataset);
+  console.log ('end of output', end);
 
 // Use the function you just created to calculate the average number of consorts
 
@@ -230,3 +232,20 @@ var dataset = {
 // Write a function that will take this data and return a new array of objects that has the name of the ruler and a property called "numberOfConsorts", which should have the total number of consorts that the ruler had. Requirement: use map.
 
 // Write a function that will take this data and return an array of strings in this format: "{name} ({startReign}-{endReign} BCE)" (e.g. "Seleucus I Nicator (305-281 BCE)"). Requirement: use map.
+
+
+var things = [7, 8, 9,1, 3];
+
+var sum = 0
+for (var i = 0; i < things.length; i++) {
+  var thing = things[i]
+  sume += thing;
+}
+
+things.reduce((thing)=>{
+  return start + thing;
+}, 0) //this 0 is the same as the sum
+
+things.reduce(function(start, thing{
+  return start + thing;
+}, 0)

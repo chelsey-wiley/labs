@@ -207,12 +207,84 @@ function kingsNamedSeleucus(data) {
       return output;
 }
   var result = kingsNamedSeleucus(dataset);
-  console.log(result);
+  // console.log('kingsNamedSeleucus works', result);
 
 // Write a function that returns the rulers who reigned more than five years. Requirement: use filter.
 
+function overFiveYears (data){
+  var output= data.rulers.filter(function(item){
+    if (item.startReign - item.endReign > 5){
+      return true;
+    }
+    else{
+      return false;
+      }
+  });
+    return output;
+}
+  var result = overFiveYears(dataset);
+  // console.log ('overFiveYears works', result);
+
 // Write a function that returns the rulers who reigned more than twenty years. Requirement: use filter.
+
+  function overTwentyYears (data) {
+    var output = data.rulers.filter(function(item){
+      if (item.startReign - item.endReign > 5){
+        return true;
+      }
+      else{
+        return false;
+      }
+    });
+    return output;
+  }
+    var result = overTwentyYears(dataset);
+    // console.log ('overTwentyYears works', result);
 
 // Write a function that returns rulers without consorts. Requirement: use filter.
 
+  function noConsort(data){
+    var output = data.rulers.filter(function(item){
+      if (item.consort !== null){
+        return true;
+      }
+      else {
+        return false;
+      }
+    });
+    return output;
+  }
+    var result = noConsort(dataset);
+    // console.log('noConsort Works', result);
+
 // Write a function that returns the rulers who reigned more than five years. Then have it return a new array containing objects with all the same properties, including a new property called "lengthOfReign". Requirement: use filter for the first task and map for the second.
+
+function overFiveYears (data){
+  var output= data.rulers.filter(function(item){
+    if (item.startReign - item.endReign > 5){
+      return {
+        name: item.name,
+        startReign: item.startReign,
+        endReign: item.endReign,
+        consort: item.consort
+      }
+    }
+  });
+
+  var newArr = output.map(function(thing){
+    return {
+      name: thing.name,
+      startReign: thing.startReign,
+      endReign: thing.endReign,
+      consort: thing.consort,
+      totalReign: thing.startReign - thing.endReign
+    }
+  });
+
+    return newArr;
+}
+  var result = overFiveYears(dataset);
+  console.log ('overFiveYears works', result);
+
+  //can't use same variable in both functions
+  //return the second but set the first to a new variable to console.log 
