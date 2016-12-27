@@ -196,28 +196,91 @@ var dataset = {
 //-------------------------
 
 // Create a function that calculates the total consorts. Requirement: you must use reduce
-  function totalConsorts(data){
-   var output = data.rulers.reduce(function(start, theValue){
-     return start + item.consor.length;
-   }, 0);
-   return output;
- }
- var end = totalConsorts(dataset);
-  console.log ('end of output', end);
+function totalConsorts(data){
+ var output = data.rulers.reduce(function(sum, item){
+   return sum + item.consort.length;
+ }, 0);
+
+ return output;
+}
+
+var result = totalConsorts(dataset);
+// console.log('it works!', result);
 
 // Use the function you just created to calculate the average number of consorts
 
-//-------------------------
+function totalConsorts(data){
+ var output = data.rulers.reduce(function(sum, item){
+   return sum + item.consort.length;
+ }, 0);
 
-// Create a function that counts how many rulers are the second ruler with that name in the dynasty. Requirement: use reduce
+ var avg = output/data.rulers.length;
+  return avg;
+}
+
+var result = totalConsorts(dataset);
+// console.log('it works. The answer is', result);
+
+
+
+// Create a function that counts how many rulers are the second ruler with that name in the dynasty. Requirement: use reduce USE II as your indexOf search. Must have space before and after II or it will also search things like VII
+
+function secondRuler(data) {
+  var output = data.rulers.reduce(function(sum, ruler) {
+    if (ruler.name.indexOf(' II ') !== -1) {
+      return sum + 1;}
+      else {
+        return sum;
+      }
+  },0);
+  return output;
+}
+
+var result = secondRuler(dataset);
+// console.log('it works. The result of II is', result);
+
 
 // Create a function that counts how many rulers are the third ruler with that name in the dynasty. Requirement: use reduce
 
-//-------------------------
+function thirdRuler(data){
+  var output = data.rulers.reduce(function(sum, ruler){
+    if (ruler.name.indexOf(' III ') !== -1 ){
+      return sum + 1;}
+      else {
+        return sum;
+      }
+  }, 0);
+  return output;
+}
+
+var result = thirdRuler(dataset);
+// console.log ('the result of II is', result);
 
 // Create a function that calculates the total years that all the rulers ruled. Requirement: you must use reduce.
 
+function totalYears(data) {
+  var output = data.rulers.reduce(function(sum, ruler) {
+    return sum + (ruler.startReign - ruler.endReign);
+  }, 0);
+  return output;
+}
+
+var result = totalYears(dataset);
+// console.log('it works! The result of totalYears is', result);
+
+
 // Use the function you just created to calculate the average length of the all the rulers' reign
+
+function avgTotalYears(data) {
+  var output = data.rulers.reduce(function(sum, ruler) {
+    return sum + (ruler.startReign - ruler.endReign);
+  }, 0);
+  var avg = output/data.rulers.length;
+   return avg;
+}
+
+var result = avgTotalYears(dataset);
+console.log('it works! The average is', result);
 
 //-------------------------
 // Mapping practice
@@ -232,20 +295,3 @@ var dataset = {
 // Write a function that will take this data and return a new array of objects that has the name of the ruler and a property called "numberOfConsorts", which should have the total number of consorts that the ruler had. Requirement: use map.
 
 // Write a function that will take this data and return an array of strings in this format: "{name} ({startReign}-{endReign} BCE)" (e.g. "Seleucus I Nicator (305-281 BCE)"). Requirement: use map.
-
-
-var things = [7, 8, 9,1, 3];
-
-var sum = 0
-for (var i = 0; i < things.length; i++) {
-  var thing = things[i]
-  sume += thing;
-}
-
-things.reduce((thing)=>{
-  return start + thing;
-}, 0) //this 0 is the same as the sum
-
-things.reduce(function(start, thing{
-  return start + thing;
-}, 0)
