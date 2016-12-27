@@ -612,20 +612,101 @@ var dataset = [
 
 // Write a function that returns all years where there is a greater than 20K difference male and female population. Requirement: use filter.
 
-
+function overTwentyK(data){
 var num = dataset.filter(function(obj){
-  console.log('females', obj.females)
-  if(obj.females - obj.males > 20000)
-  return true
-});
+  // console.log('females', obj.females)
+  if(obj.females - obj.males > 20000){
+    return true;
+  }
+  else {
+    return false;
+  }
+  });
+return num;
+}
+var result = overTwentyK(dataset);
 
-console.log(num)
+// console.log('it works', result)
 
 // Write a function that returns all years where there is less than a 100K population. Requirement: use filter.
 
+function lessThanHunderedK(data){
+  var pop = dataset.filter(function(obj){
+    // console.log('population', obj.total)
+    if (obj.total < 100000){
+      return true;
+    }
+      else {
+        return false;
+      }
+  });
+  return pop;
+}
+var result = lessThanHunderedK(dataset);
+
+// console.log('it works', result)
+//can't use a , in the years
+
 //  Write a function that returns all years where there is a greater than 20K difference male and female population. Then have it take this data and return a new array of objects without the country and year properties. Requirements: use filter to accomplish the first and map to accomplish the second.
 
+function overTwentyK(data){
+  var num = dataset.filter(function(obj){
+    // console.log('females', obj.females)
+    if(obj.females - obj.males > 20000){
+      return true;
+    }
+    else {
+      return false;
+    }
+  });
+
+
+    var info = data.map(function(x){
+      return {
+        females: x.females,
+         age: x.age,
+         males: x.males,
+         total: x.total
+      }
+    });
+
+    return info;
+  };
+var result = overTwentyK(dataset);
+// console.log('it works', result)
+
+
+
 // Write a function that returns all years where there is less than a 100K population. Then have it take this data and return a new array of objects with all the same properties, also including a new property containing the difference in male and female population. To get this, subtract the female population from the male population. Requirements: use filter to accomplish the first and map to accomplish the second.
+
+
+function lessThanHunderedK(data){
+  var pop = dataset.filter(function(obj){
+    // console.log('population', obj.total)
+    if (obj.total < 100000){
+      return true;
+    }
+      else {
+        return false;
+      }
+  });
+
+  var info = data.map(function(x){
+    return{
+        country: x.country,
+        age: x.age,
+        females: x.females,
+        males: x.males,
+        year: x.year,
+        total: x.total,
+        difference: x.females - x.males //not sure why the instructions say to do males-females?
+    }
+  });
+  return info;
+};
+
+var result = lessThanHunderedK(dataset);
+console.log ('it works', result);
 
 
 // Requirement: use filter.
