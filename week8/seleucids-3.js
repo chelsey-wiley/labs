@@ -280,7 +280,7 @@ function avgTotalYears(data) {
 }
 
 var result = avgTotalYears(dataset);
-console.log('it works! The average is', result);
+// console.log('it works! The average is', result);
 
 //-------------------------
 // Mapping practice
@@ -288,10 +288,69 @@ console.log('it works! The average is', result);
 
 // Write a function that will take this data and return just an array of the ruler's names. Requirement: use map.
 
+function Names(data) {
+  var output = data.rulers.map(function(item) {
+    return item.name;
+  });
+  return output;
+}
+  var result = Names(dataset);
+  // console.log('it works all the names are here',result);
+
 // Write a function that will take this data and return just an array of the lengths of each ruler's rule. Requirement: use map.
+
+
+function theLength(data) {
+  var output = data.rulers.map(function(item) {
+    return (item.startReign - item.endReign)
+  });
+  return output;
+}
+  var result = theLength(dataset);
+  // console.log('it works the lengths of the rulers are:', result);
 
 // Write a function that will take this data and return a new array of objects that has all the same data, plus each object needs to have a new property called "lengthOfReign" which should have the length of the ruler's reign in years. Requirement: use map.
 
+ function newArr(data) {
+  var output = data.rulers.map(function(item) {
+    return {
+      name: item.name,
+      startReign: item.startReign,
+      endReign: item.endReign,
+      consort: item.consort,
+      totalReign: (item.startReign - item.endReign)
+    }
+
+  });
+  return output;
+}
+  var result = newArr(dataset);
+  // console.log('newArr works', result);
+
 // Write a function that will take this data and return a new array of objects that has the name of the ruler and a property called "numberOfConsorts", which should have the total number of consorts that the ruler had. Requirement: use map.
 
+function newArrWithConsorts(data) {
+  var output = data.rulers.map(function(item) {
+    return {
+      name: item.name,
+      numberOfConsorts: item.consort.length
+    }
+  });
+  return output;
+}
+  var result = newArrWithConsorts(dataset);
+  // console.log('it works the newArrWithConsorts is:', result);
+
 // Write a function that will take this data and return an array of strings in this format: "{name} ({startReign}-{endReign} BCE)" (e.g. "Seleucus I Nicator (305-281 BCE)"). Requirement: use map.
+
+
+
+function theStrings(data) {
+  var output = data.rulers.map(function(item) {
+    return item.name + " " + "(" + item.startReign + "-" + item.endReign + " " + "BCE" + ")";
+  });
+  return output;
+}
+  var result = theStrings(dataset);
+  // console.log('it works! theString result is: ', result);
+  //Not sure about the formatting. It seems there should be an easier way to do this.
