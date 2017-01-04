@@ -1039,7 +1039,7 @@ function avgPrice(data) {
     var stuff = data[i];
       sum += stuff.price;
   }
-  outputAvgPrice= sum/data.length;
+  var outputAvgPrice= sum/data.length;
   return outputAvgPrice;
 }
 var result = avgPrice(items);
@@ -1055,7 +1055,7 @@ function priceRange(data) {
   for (var i = 0; i < data.length; i++) {
     var item = data[i];
 
-    if (item.price > 14 && item.price < 18) {
+    if (item.price > 14 && item.price < 18 && item.currency_code === "USD") {
       output.push(item.title);
     }
   }
@@ -1063,7 +1063,7 @@ function priceRange(data) {
 }
 var result = priceRange(items);
 
-// console.log(result);
+console.log(result);
 
 // Log the name and price of every item with a "GBP" currency code and print its name and price.
 function getGBP(data) {
@@ -1133,7 +1133,7 @@ function OverEight(data) {
 function homeMade(data) {
   var output = [];
 
-  for( var i = 0; i < data.length; i++) {
+  for(var i = 0; i < data.length; i++) {
     var item = data[i];
 
     if (item.who_made === "i_did") {
@@ -1144,4 +1144,4 @@ function homeMade(data) {
 }
 var result = homeMade(items);
 
-console.log(result);
+// console.log(result);
