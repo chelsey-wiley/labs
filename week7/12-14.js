@@ -150,7 +150,7 @@ function recipeOverThirteen(data) {
     var resultsOverThirteen = data.results[i];
     var str = resultsOverThirteen.ingredients.split(", ");
 
-    if (str.length > 10) {
+    if (str.length > 13) {
       outputOverThirteen.push(resultsOverThirteen);
     }
   }
