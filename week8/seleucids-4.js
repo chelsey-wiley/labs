@@ -229,7 +229,7 @@ function overFiveYears (data){
 
   function overTwentyYears (data) {
     var output = data.rulers.filter(function(item){
-      if (item.startReign - item.endReign > 5){
+      if (item.startReign - item.endReign > 20){
         return true;
       }
       else{
