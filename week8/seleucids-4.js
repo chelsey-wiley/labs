@@ -245,7 +245,7 @@ function overFiveYears (data){
 
   function noConsort(data){
     var output = data.rulers.filter(function(item){
-      if (item.consort !== null){
+      if (item.consort.length !== -1){
         return true;
       }
       else {
@@ -255,7 +255,7 @@ function overFiveYears (data){
     return output;
   }
     var result = noConsort(dataset);
-    // console.log('noConsort Works', result);
+    console.log('noConsort Works', result);
 
 // Write a function that returns the rulers who reigned more than five years. Then have it return a new array containing objects with all the same properties, including a new property called "lengthOfReign". Requirement: use filter for the first task and map for the second.
 
@@ -284,7 +284,7 @@ function overFiveYears (data){
     return newArr;
 }
   var result = overFiveYears(dataset);
-  console.log ('overFiveYears works', result);
+  // console.log ('overFiveYears works', result);
 
   //can't use same variable in both functions
-  //return the second but set the first to a new variable to console.log 
+  //return the second but set the first to a new variable to console.log
